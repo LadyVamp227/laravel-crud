@@ -35,7 +35,7 @@
                         @break
                     @endif
                 @endforeach
-                    @if($b->button_id!==2)
+                    @if($b->button_id!==1)
                         <a href="/config?button_id=1" target="_blank" class="btn btn-dark">Go to</a>
                     @endif
             </div>
