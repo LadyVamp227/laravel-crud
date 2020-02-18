@@ -156,7 +156,7 @@
                 <h5 class="card-title">Button #8</h5>
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                 @foreach($button as $b)
-                    @if($b->button_id==7)
+                    @if($b->button_id==8)
                         <style>#eight{background: {{$b->color}};}</style>
                         <a id="eight" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
                         <a href='/edit?button_id=8' class="btn btn-success">Edit</a>
@@ -174,11 +174,11 @@
                 <h5 class="card-title">Button #9</h5>
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                 @foreach($button as $b)
-                    @if($b->button_id==7)
+                    @if($b->button_id==9)
                         <style>#nine{background: {{$b->color}};}</style>
                         <a id="nine" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
-                        <a href='/edit?button_id=8' class="btn btn-success">Edit</a>
-                        <a href='/delete?button_id=8' class="btn btn-danger">Delete</a>
+                        <a href='/edit?button_id=9' class="btn btn-success">Edit</a>
+                        <a href='/delete?button_id=9' class="btn btn-danger">Delete</a>
                         @break
                     @endif
                 @endforeach
