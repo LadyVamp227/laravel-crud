@@ -11,7 +11,6 @@
                             <input type="hidden" id="button_id" name="button_id" value={{$button_id}}>
                             <div class="form-group row">
                                 <label for="title" class="col-md-4 col-form-label text-md-right">Title</label>
-                                {{--                            return view(home, ['color' => $color, linkg, ])--}}
                                 <div class="col-md-6">
                                     <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus>
                                     @error('title')
@@ -51,7 +50,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button id="save" type="submit" class="btn btn-primary">
-                                        Save {{ ('Test@update') }}
+                                        Save
                                     </button>
                                 </div>
                         </form>
