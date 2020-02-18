@@ -28,8 +28,8 @@
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                 @foreach($button as $b)
                     @if($b->button_id==1)
-                        <style>#two{background: {{$b->color}};}</style>
-                        <a id="two" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
+                        <style>#one{background: {{$b->color}};}</style>
+                        <a id="one" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
                         <a href='/edit?button_id=1' class="btn btn-success">Edit</a>
                         <a href='/delete?button_id=1' class="btn btn-danger">Delete</a>
                         @break
