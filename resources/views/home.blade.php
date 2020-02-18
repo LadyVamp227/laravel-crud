@@ -201,8 +201,6 @@
                         <a href='/edit?button_id=8' class="btn btn-success">Edit</a>
                         <a href='/delete?button_id=8' class="btn btn-danger">Delete</a>
                         @break
-                        {{--                    @else--}}
-                        {{--                        <a href="/config?button_id=2" target="_blank" class="btn btn-dark">Go to</a>--}}
                     @endif
                 @endforeach
                 @foreach($button as $b)
