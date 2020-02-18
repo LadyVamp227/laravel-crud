@@ -35,12 +35,9 @@
                         @break
                     @endif
                 @endforeach
-                @foreach($button as $b)
                     @if($b->button_id!==2)
                         <a href="/config?button_id=1" target="_blank" class="btn btn-dark">Go to</a>
-                        @break
                     @endif
-                @endforeach
             </div>
         </div>
         <div class="card text-center">
@@ -56,12 +53,9 @@
                         @break
                     @endif
                 @endforeach
-                @foreach($button as $b)
                     @if($b->button_id!==2)
                         <a href="/config?button_id=2" target="_blank" class="btn btn-dark">Go to</a>
-                        @break
                     @endif
-                @endforeach
             </div>
         </div>
         <div class="card text-center">
@@ -77,12 +71,9 @@
                         @break
                     @endif
                 @endforeach
-                @foreach($button as $b)
                     @if($b->button_id!==3)
                         <a href="/config?button_id=3" target="_blank" class="btn btn-dark">Go to</a>
-                        @break
                     @endif
-                @endforeach
             </div>
         </div>
         <div class="card text-center">
@@ -98,12 +89,9 @@
                         @break
                     @endif
                 @endforeach
-                @foreach($button as $b)
                     @if($b->button_id!==4)
                         <a href="/config?button_id=4" target="_blank" class="btn btn-dark">Go to</a>
-                        @break
                     @endif
-                @endforeach
             </div>
         </div>
         <div class="card text-center">
@@ -119,12 +107,9 @@
                         @break
                     @endif
                 @endforeach
-                @foreach($button as $b)
                     @if($b->button_id!==5)
                         <a href="/config?button_id=5" target="_blank" class="btn btn-dark">Go to</a>
-                        @break
                     @endif
-                @endforeach
             </div>
         </div>
         <div class="card text-center">
@@ -140,12 +125,9 @@
                         @break
                     @endif
                 @endforeach
-                @foreach($button as $b)
                     @if($b->button_id!==6)
                         <a href="/config?button_id=6" target="_blank" class="btn btn-dark">Go to</a>
-                        @break
                     @endif
-                @endforeach
             </div>
         </div>
         <div class="card text-center">
@@ -182,12 +164,9 @@
                         @break
                     @endif
                 @endforeach
-                @foreach($button as $b)
                     @if($b->button_id!==8)
                         <a href="/config?button_id=8" target="_blank" class="btn btn-dark">Go to</a>
-                        @break
                     @endif
-                @endforeach
             </div>
         </div>
         <div class="card text-center">
@@ -203,12 +182,9 @@
                         @break
                     @endif
                 @endforeach
-                @foreach($button as $b)
                     @if($b->button_id!==9)
                         <a href="/config?button_id=9" target="_blank" class="btn btn-dark">Go to</a>
-                        @break
                     @endif
-                @endforeach
             </div>
         </div>
     </div>
