@@ -15,7 +15,7 @@ public function update(Request $request)
 
     $validate = $request->validate([
         'title' => 'required|max:255',
-        'link' => 'required|max:255',
+        'link' => 'required|url|max:255',
     ]);
     $userId = Auth::user()->id;
     $buttonn = request('button_id');
