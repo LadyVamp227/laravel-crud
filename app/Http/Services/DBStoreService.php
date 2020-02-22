@@ -14,7 +14,7 @@ class DBStoreService
     {
         $validate = $request->validate([
             'title' => 'required|max:255',
-            'link' => 'required|max:255',
+            'link' => 'required|url|max:255',
         ]);
         $userId = Auth::user()->id;
         $buttonId = $request->get('button_id');
