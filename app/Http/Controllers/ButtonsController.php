@@ -6,39 +6,31 @@ use App\Button;
 use App\Http\Services\BtnConfigService;
 use App\Http\Services\DBStoreService;
 use App\Http\Services\UpdateService;
+use App\Services\ButtonService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ButtonsController extends Controller
 {
-    public function insertDB(Request $request)
+    public function insertDB(ButtonService $db)
     {
-        $db = new DBStoreService;
-        return $db->store($request);
+        return $db->store();
 
     }
-    public function config(){
-        $btn= new BtnConfigService;
+    public function config(ButtonService $btn){
         return $btn->btnconfig();
-
     }
 
-    public function homeConfigButtons(Request $request)
+    public function homeConfigButtons(ButtonService $getConf)
     {
-        $getConf = new BtnConfigService;
-        return $getConf->getConfig($request);
+        return $getConf->getConfig();
     }
     public function edit(Request $request){
         $button = request('button_id');
         return view('edit',['button_id'=>$button]);
     }
-    function update(Request $request){
-
-        $up = new UpdateService;
-        return $up->update($request);
-
-
-
+    function update(ButtonService $up){
+        return $up->update();
     }
     function delete(Request $request){
         $currentUserId = Auth::user()->id;

@@ -15,6 +15,7 @@ class CreateButtonTable extends Migration
     public function up()
     {
         Schema::create('button', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->integer('button_id');
             $table->char('title',255);
