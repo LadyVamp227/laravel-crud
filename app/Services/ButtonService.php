@@ -5,6 +5,7 @@ namespace App\Services;
 
 
 use App\Button;
+use App\Http\Requests\ButtonRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,12 +24,9 @@ class ButtonService
     {
         $this->request = $request;
     }
-    public function store()
+    public function store(ButtonRequest $request)
     {
-        $validate = $this->request->validate([
-            'title' => 'required|max:255',
-            'link' => 'required|url|max:255',
-        ]);
+        $validated = $request->validated();
         $userId = Auth::user()->id;
         $buttonId = $this->request->get('button_id');
         $title = $this->request->get('title');
@@ -73,13 +71,8 @@ class ButtonService
             return view('home',compact('button'));
         }
     }
-    public function update()
+    public function update(ButtonRequest $request)
     {
-
-        $validate = $this->request->validate([
-            'title' => 'required|max:255',
-            'link' => 'required|url|max:255',
-        ]);
         $userId = Auth::user()->id;
         $buttonn = request('button_id');
         $title = $this->request->get('title');
