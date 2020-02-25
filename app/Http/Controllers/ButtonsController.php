@@ -26,21 +26,14 @@ class ButtonsController extends Controller
     {
         return $getConf->getConfig();
     }
-    public function edit(ButtonService $button){
+    public function edit(){
         $button = request('button_id');
         return view('edit',['button_id'=>$button]);
     }
     function update(ButtonService $up, ButtonRequest $request){
         return $up->update($request);
     }
-    function delete(Request $request){
-        $currentUserId = Auth::user()->id;
-        $buttonn = request('button_id');
-        $updateInfo = Button::where('user_id',$currentUserId)
-            ->where('button_id',$buttonn)
-            ->delete();
-        return redirect('/home');
-
-
+    function delete(ButtonService $deletedInfo){
+        return $deletedInfo->delete();
     }
 }

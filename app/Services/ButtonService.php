@@ -73,6 +73,7 @@ class ButtonService
     }
     public function update(ButtonRequest $request)
     {
+        $validated = $request->validated();
         $userId = Auth::user()->id;
         $buttonn = request('button_id');
         $title = $this->request->get('title');
@@ -90,6 +91,16 @@ class ButtonService
 
         }
         return redirect('/home');
+    }
+    function delete(){
+        $currentUserId = Auth::user()->id;
+        $buttonn = request('button_id');
+        $deletedInfo = Button::where('user_id',$currentUserId)
+            ->where('button_id',$buttonn)
+            ->delete();
+        return redirect('/home');
+
+
     }
 
 }
