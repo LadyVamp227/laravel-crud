@@ -12,9 +12,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class ButtonService
+ * @package App\Services
+ */
 class ButtonService
 
 {
+    /**
+     * @var Request
+     */
     private $request;
 
     /**
@@ -25,6 +32,11 @@ class ButtonService
     {
         $this->request = $request;
     }
+
+    /**
+     * @param ButtonRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(ButtonRequest $request)
     {
         $validated = $request->validated();
@@ -39,6 +51,10 @@ class ButtonService
 
 
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function btnconfig()
     {
         $user = User::all();
@@ -58,6 +74,10 @@ class ButtonService
         }
         return view('btnconfig', ['button_id' => $id]);
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getConfig()
     {
         $currentUserId = Auth::user()->id;
@@ -69,6 +89,11 @@ class ButtonService
         }
         return view('home',compact('button'));
     }
+
+    /**
+     * @param ButtonRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update(ButtonRequest $request)
     {
         $validated = $request->validated();
@@ -89,6 +114,10 @@ class ButtonService
         }
         return redirect('/home');
     }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     function delete(){
         $currentUserId = Auth::user()->id;
         $buttonn = new Hashids();
