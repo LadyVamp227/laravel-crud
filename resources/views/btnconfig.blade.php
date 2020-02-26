@@ -8,7 +8,7 @@
                     <div class="card-body">
                     <form method="POST" action="/config">
                         @csrf
-                        <input type="hidden" id="button_id" name="button_id" value={{$button_id}}>
+                        <input type="hidden" id="button_id" name="button_id" value={{$button_id[0]}}>
                         <div class="form-group row">
                             <label for="title" class="col-md-4 col-form-label text-md-right">Title</label>
                             <div class="col-md-6">

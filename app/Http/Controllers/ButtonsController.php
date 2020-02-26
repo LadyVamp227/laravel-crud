@@ -8,6 +8,7 @@ use App\Http\Services\BtnConfigService;
 use App\Http\Services\DBStoreService;
 use App\Http\Services\UpdateService;
 use App\Services\ButtonService;
+use Hashids\Hashids;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,8 +28,9 @@ class ButtonsController extends Controller
         return $getConf->getConfig();
     }
     public function edit(){
-        $button = request('button_id');
-        return view('edit',['button_id'=>$button]);
+        $buttonn = new Hashids();
+        $id = $buttonn->decode(request('button_id'));
+        return view('edit',['button_id'=>$id]);
     }
     function update(ButtonService $up, ButtonRequest $request){
         return $up->update($request);

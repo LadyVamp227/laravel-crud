@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Button;
 use App\Http\Requests\ButtonRequest;
 use App\User;
+use Hashids\Hashids;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -42,18 +43,20 @@ class ButtonService
     {
         $user = User::all();
         $currentUserId = Auth::user()->id;
-        $buttonn = request('button_id');
+        $buttonn = new Hashids();
+
+        $id = $buttonn->decode(request('button_id'));
         foreach ($user as $userId) {
             if ($userId['id'] == $currentUserId) {
                 $dbResult = DB::table('button')->where('user_id', '=', $currentUserId)->get();
                 foreach ($dbResult as $conf) {
                     if (empty($conf)) {
-                        return view('btnconfig', ['link' => '/config', 'button_id' => $buttonn]);
+                        return view('btnconfig', ['link' => '/config', 'button_id' => $id]);
                     }
                 }
             }
         }
-        return view('btnconfig', ['button_id' => $buttonn]);
+        return view('btnconfig', ['button_id' => $id]);
     }
     public function getConfig()
     {
@@ -88,9 +91,12 @@ class ButtonService
     }
     function delete(){
         $currentUserId = Auth::user()->id;
+        $buttonn = new Hashids();
+
+        $id = $buttonn->decode(request('button_id'));
         $buttonn = request('button_id');
         $deletedInfo = Button::where('user_id',$currentUserId)
-            ->where('button_id',$buttonn)
+            ->where('button_id',$id)
             ->delete();
         return redirect('/home');
 

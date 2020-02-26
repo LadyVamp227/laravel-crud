@@ -22,19 +22,22 @@
     </div>
 @endsection
 @section('buttons')
+    <?php
+        $id = new \Hashids\Hashids();
+    ?>
     <div class="card-columns p-auto">
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">Button #1</h5>
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                <a href="/config?button_id=1" target="_blank" class="btn btn-dark">Go to</a>
+                <a href="/config?button_id={{$buttonId = $id->encode(1)}}" target="_blank" class="btn btn-dark">Go to</a>
             </div>
         </div>
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">Button #2</h5>
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                <a href="/config?button_id=2" target="_blank" class="btn btn-dark">Go to</a>
+                <a href="/config?button_id={{$buttonId = $id->encode(2)}}" target="_blank" class="btn btn-dark">Go to</a>
 
             </div>
         </div>
@@ -42,49 +45,49 @@
             <div class="card-body">
                 <h5 class="card-title">Button #3</h5>
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                <a href="/config?button_id=3" target="_blank" class="btn btn-dark">Go to</a>
+                <a href="/config?button_id={{$buttonId = $id->encode(3)}}" target="_blank" class="btn btn-dark">Go to</a>
             </div>
         </div>
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">Button #4</h5>
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                <a href="/config?button_id=4" target="_blank" class="btn btn-dark">Go to</a>
+                <a href="/config?button_id={{$buttonId = $id->encode(4)}}" target="_blank" class="btn btn-dark">Go to</a>
             </div>
         </div>
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">Button #5</h5>
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                <a href="/config?button_id=5" target="_blank" class="btn btn-dark">Go to</a>
+                <a href="/config?button_id={{$buttonId = $id->encode(5)}}" target="_blank" class="btn btn-dark">Go to</a>
             </div>
         </div>
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">Button #6</h5>
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                <a href="/config?button_id=6" target="_blank" class="btn btn-dark">Go to</a>
+                <a href="/config?button_id={{$buttonId = $id->encode(6)}}" target="_blank" class="btn btn-dark">Go to</a>
             </div>
         </div>
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">Button #7</h5>
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                <a href="/config?button_id=7" target="_blank" class="btn btn-dark">Go to</a>
+                <a href="/config?button_id={{$buttonId = $id->encode(7)}}" target="_blank" class="btn btn-dark">Go to</a>
             </div>
         </div>
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">Button #8</h5>
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                <a href="/config?button_id=8" target="_blank" class="btn btn-dark">Go to</a>
+                <a href="/config?button_id={{$buttonId = $id->encode(8)}}" target="_blank" class="btn btn-dark">Go to</a>
             </div>
         </div>
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">Button #9</h5>
                 <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                <a href="/config?button_id=9" target="_blank" class="btn btn-dark">Go to</a>
+                <a href="/config?button_id={{$buttonId = $id->encode(9)}}" target="_blank" class="btn btn-dark">Go to</a>
             </div>
         </div>
 

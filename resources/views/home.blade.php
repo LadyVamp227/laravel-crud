@@ -21,6 +21,9 @@
     </div>
 @endsection
 @section('buttons')
+    <?php
+    $id = new \Hashids\Hashids();
+    ?>
     <div class="card-columns p-auto">
         <div class="card text-center">
             <div class="card-body">
@@ -30,15 +33,15 @@
                         <h5 class="card-title">Button #1 Name: {{$b->title}}</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                         <a id="one" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
-                        <a href='/edit?button_id=1' class="btn btn-success">Edit</a>
-                        <a href='/delete?button_id=1' class="btn btn-danger">Delete</a>
+                        <a href='/edit?button_id={{$buttonId = $id->encode(1)}}' class="btn btn-success">Edit</a>
+                        <a href='/delete?button_id={{$buttonId = $id->encode(1)}}' class="btn btn-danger">Delete</a>
                         @break
                     @endif
                 @endforeach
                     @if($b->button_id!==1)
                         <h5 class="card-title">Button #1</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                        <a href="/config?button_id=1" target="_blank" class="btn btn-dark">Go to</a>
+                        <a href="/config?button_id={{$buttonId = $id->encode(1)}}" target="_blank" class="btn btn-dark">Go to</a>
                     @endif
             </div>
         </div>
@@ -50,15 +53,15 @@
                         <h5 class="card-title">Button #2 Name: {{$b->title}}</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                         <a id="two" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
-                        <a href='/edit?button_id=2' class="btn btn-success">Edit</a>
-                        <a href='/delete?button_id=2' class="btn btn-danger">Delete</a>
+                        <a href='/edit?button_id={{$buttonId = $id->encode(2)}}' class="btn btn-success">Edit</a>
+                        <a href='/delete?button_id={{$buttonId = $id->encode(2)}}' class="btn btn-danger">Delete</a>
                         @break
                     @endif
                 @endforeach
                     @if($b->button_id!==2)
                         <h5 class="card-title">Button #2</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                        <a href="/config?button_id=2" target="_blank" class="btn btn-dark">Go to</a>
+                        <a href="/config?button_id={{$buttonId = $id->encode(2)}}" target="_blank" class="btn btn-dark">Go to</a>
                     @endif
             </div>
         </div>
@@ -70,15 +73,15 @@
                         <h5 class="card-title">Button #3 Name: {{$b->title}}</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                         <a id="tree" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
-                        <a href='/edit?button_id=3' class="btn btn-success">Edit</a>
-                        <a href='/delete?button_id=3' class="btn btn-danger">Delete</a>
+                        <a href='/edit?button_id={{$buttonId = $id->encode(3)}}' class="btn btn-success">Edit</a>
+                        <a href='/delete?button_id={{$buttonId = $id->encode(3)}}' class="btn btn-danger">Delete</a>
                         @break
                     @endif
                 @endforeach
                     @if($b->button_id!==3)
                         <h5 class="card-title">Button #3</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                        <a href="/config?button_id=3" target="_blank" class="btn btn-dark">Go to</a>
+                        <a href="/config?button_id={{$buttonId = $id->encode(3)}}" target="_blank" class="btn btn-dark">Go to</a>
                     @endif
             </div>
         </div>
@@ -90,15 +93,15 @@
                         <h5 class="card-title">Button #4 Name: {{$b->title}}</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                         <a id="four" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
-                        <a href='/edit?button_id=4' class="btn btn-success">Edit</a>
-                        <a href='/delete?button_id=4' class="btn btn-danger">Delete</a>
+                        <a href='/edit?button_id={{$buttonId = $id->encode(4)}}' class="btn btn-success">Edit</a>
+                        <a href='/delete?button_id={{$buttonId = $id->encode(4)}}' class="btn btn-danger">Delete</a>
                         @break
                     @endif
                 @endforeach
                     @if($b->button_id!==4)
                         <h5 class="card-title">Button #4</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                        <a href="/config?button_id=4" target="_blank" class="btn btn-dark">Go to</a>
+                        <a href="/config?button_id={{$buttonId = $id->encode(4)}}" target="_blank" class="btn btn-dark">Go to</a>
                     @endif
             </div>
         </div>
@@ -110,15 +113,15 @@
                         <h5 class="card-title">Button #5 Name: {{$b->title}}</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                         <a id="five" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
-                        <a href='/edit?button_id=5' class="btn btn-success">Edit</a>
-                        <a href='/delete?button_id=5' class="btn btn-danger">Delete</a>
+                        <a href='/edit?button_id={{$buttonId = $id->encode(5)}}' class="btn btn-success">Edit</a>
+                        <a href='/delete?button_id={{$buttonId = $id->encode(5)}}' class="btn btn-danger">Delete</a>
                         @break
                     @endif
                 @endforeach
                     @if($b->button_id!==5)
                         <h5 class="card-title">Button #5</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                        <a href="/config?button_id=5" target="_blank" class="btn btn-dark">Go to</a>
+                        <a href="/config?button_id={{$buttonId = $id->encode(5)}}" target="_blank" class="btn btn-dark">Go to</a>
                     @endif
             </div>
         </div>
@@ -130,15 +133,15 @@
                         <h5 class="card-title">Button #6 Name: {{$b->title}}</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                         <a id="six" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
-                        <a href='/edit?button_id=6' class="btn btn-success">Edit</a>
-                        <a href='/delete?button_id=6' class="btn btn-danger">Delete</a>
+                        <a href='/edit?button_id={{$buttonId = $id->encode(6)}}' class="btn btn-success">Edit</a>
+                        <a href='/delete?button_id={{$buttonId = $id->encode(6)}}' class="btn btn-danger">Delete</a>
                         @break
                     @endif
                 @endforeach
                     @if($b->button_id!==6)
                         <h5 class="card-title">Button #6</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                        <a href="/config?button_id=6" target="_blank" class="btn btn-dark">Go to</a>
+                        <a href="/config?button_id={{$buttonId = $id->encode(6)}}" target="_blank" class="btn btn-dark">Go to</a>
                     @endif
             </div>
         </div>
@@ -150,8 +153,8 @@
                         <h5 class="card-title">Button #7 Name: {{$b->title}}</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                         <a id="seven" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
-                        <a href='/edit?button_id=7' class="btn btn-success">Edit</a>
-                        <a href='/delete?button_id=7' class="btn btn-danger">Delete</a>
+                        <a href='/edit?button_id={{$buttonId = $id->encode(7)}}' class="btn btn-success">Edit</a>
+                        <a href='/delete?button_id={{$buttonId = $id->encode(7)}}' class="btn btn-danger">Delete</a>
                         @break
                     @endif
                 @endforeach
@@ -159,7 +162,7 @@
                     @if($b->button_id!==7)
                             <h5 class="card-title">Button #7</h5>
                             <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                        <a href="/config?button_id=7" target="_blank" class="btn btn-dark">Go to</a>
+                        <a href="/config?button_id={{$buttonId = $id->encode(7)}}" target="_blank" class="btn btn-dark">Go to</a>
                         @break
                     @endif
                 @endforeach
@@ -173,15 +176,15 @@
                         <h5 class="card-title">Button #8 Name: {{$b->title}}</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                         <a id="eight" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
-                        <a href='/edit?button_id=8' class="btn btn-success">Edit</a>
-                        <a href='/delete?button_id=8' class="btn btn-danger">Delete</a>
+                        <a href='/edit?button_id={{$buttonId = $id->encode(8)}}' class="btn btn-success">Edit</a>
+                        <a href='/delete?button_id={{$buttonId = $id->encode(8)}}' class="btn btn-danger">Delete</a>
                         @break
                     @endif
                 @endforeach
                     @if($b->button_id!==8)
                         <h5 class="card-title">Button #8</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                        <a href="/config?button_id=8" target="_blank" class="btn btn-dark">Go to</a>
+                        <a href="/config?button_id={{$buttonId = $id->encode(8)}}" target="_blank" class="btn btn-dark">Go to</a>
                     @endif
             </div>
         </div>
@@ -193,15 +196,15 @@
                         <h5 class="card-title">Button #9 Name: {{$b->title}}</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
                         <a id="nine" href={{$b->link}} target="_blank" class="btn btn-dark">Go to</a>
-                        <a href='/edit?button_id=9' class="btn btn-success">Edit</a>
-                        <a href='/delete?button_id=9' class="btn btn-danger">Delete</a>
+                        <a href='/edit?button_id={{$buttonId = $id->encode(9)}}' class="btn btn-success">Edit</a>
+                        <a href='/delete?button_id={{$buttonId = $id->encode(9)}}' class="btn btn-danger">Delete</a>
                         @break
                     @endif
                 @endforeach
                     @if($b->button_id!==9)
                         <h5 class="card-title">Button #9</h5>
                         <p class="card-text">If the button is grey you will be redirected to configure it.</p>
-                        <a href="/config?button_id=9" target="_blank" class="btn btn-dark">Go to</a>
+                        <a href="/config?button_id={{$buttonId = $id->encode(9)}}" target="_blank" class="btn btn-dark">Go to</a>
                     @endif
             </div>
         </div>
