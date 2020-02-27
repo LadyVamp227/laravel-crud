@@ -50,7 +50,7 @@ class ButtonService
 
             return redirect('/home');
         }
-       abort(404,'Please log in');
+        return redirect('/login');
 
 
     }
@@ -80,7 +80,7 @@ class ButtonService
             return view('btnconfig', ['button_id' => $id]);
 
         }
-        abort(404,"Please log in");
+        return redirect('/login');
 
     }
 
@@ -99,7 +99,7 @@ class ButtonService
             }
             return view('home',compact('button'));
         }
-        abort(404,"Please log in");
+        return redirect('/login');
 
     }
 
@@ -128,7 +128,7 @@ class ButtonService
             }
             return redirect('/home');
         }
-        abort(404,"Please log in");
+        return redirect('/login');
 
     }
 
@@ -147,7 +147,7 @@ class ButtonService
                 ->delete();
             return redirect('/home');
         }
-        abort(404,"Please log in");
+        return redirect('/login');
     }
 
 }
