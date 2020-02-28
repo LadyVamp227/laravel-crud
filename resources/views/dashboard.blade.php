@@ -23,7 +23,7 @@
 @endsection
 @section('buttons')
     <?php
-        $id = new \Hashids\Hashids();
+        $id = new \Hashids\Hashids('laravel-crud', 20, 'abcdefghijklmnopqrstuvwzwz');
     ?>
     <div class="card-columns p-auto">
         <div class="card text-center">

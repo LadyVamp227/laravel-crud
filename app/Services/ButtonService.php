@@ -60,7 +60,7 @@ class ButtonService
     {
         $user = User::all();
         $currentUserId = Auth::user()->id;
-        $buttonn = new Hashids();
+        $buttonn = new Hashids('laravel-crud', 20, 'abcdefghijklmnopqrstuvwzwz');
 
         $id = $buttonn->decode(request('button_id'));
         foreach ($user as $userId) {
@@ -121,7 +121,7 @@ class ButtonService
      */
     function delete(){
         $currentUserId = Auth::user()->id;
-        $buttonn = new Hashids();
+        $buttonn = new Hashids('laravel-crud', 20, 'abcdefghijklmnopqrstuvwzwz');
 
         $id = $buttonn->decode(request('button_id'));
         $buttonn = request('button_id');
