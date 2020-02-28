@@ -39,18 +39,15 @@ class ButtonService
      */
     public function store(ButtonRequest $request)
     {
-        if(isset(Auth::user()->id)){
-            $validated = $request->validated();
-            $userId = Auth::user()->id;
-            $buttonId = $request->get('button_id');
-            $title = $request->get('title');
-            $link = $request->get('link');
-            $color = $request->get('color');
-            $insertedData = DB::table('button')->insert(['user_id' => $userId, 'button_id'=>$buttonId, 'title' => $title, 'link' => $link, 'color' => $color]);
+        $validated = $request->validated();
+        $userId = Auth::user()->id;
+        $buttonId = $request->get('button_id');
+        $title = $request->get('title');
+        $link = $request->get('link');
+        $color = $request->get('color');
+        $insertedData = DB::table('button')->insert(['user_id' => $userId, 'button_id'=>$buttonId, 'title' => $title, 'link' => $link, 'color' => $color]);
 
-            return redirect('/home');
-        }
-        return redirect('/login');
+        return redirect('/home');
 
 
     }
@@ -60,28 +57,22 @@ class ButtonService
      */
     public function btnconfig()
     {
+        $user = User::all();
+        $currentUserId = Auth::user()->id;
+        $buttonn = new Hashids();
 
-        if (isset(Auth::user()->id)){
-            $user = User::all();
-            $currentUserId = Auth::user()->id;
-            $buttonn = new Hashids();
-
-            $id = $buttonn->decode(request('button_id'));
-            foreach ($user as $userId) {
-                if ($userId['id'] == $currentUserId) {
-                    $dbResult = DB::table('button')->where('user_id', '=', $currentUserId)->get();
-                    foreach ($dbResult as $conf) {
-                        if (empty($conf)) {
-                            return view('btnconfig', ['link' => '/config', 'button_id' => $id]);
-                        }
+        $id = $buttonn->decode(request('button_id'));
+        foreach ($user as $userId) {
+            if ($userId['id'] == $currentUserId) {
+                $dbResult = DB::table('button')->where('user_id', '=', $currentUserId)->get();
+                foreach ($dbResult as $conf) {
+                    if (empty($conf)) {
+                        return view('btnconfig', ['link' => '/config', 'button_id' => $id]);
                     }
                 }
             }
-            return view('btnconfig', ['button_id' => $id]);
-
         }
-        return redirect('/login');
-
+        return view('btnconfig', ['button_id' => $id]);
     }
 
     /**
@@ -89,7 +80,6 @@ class ButtonService
      */
     public function getConfig()
     {
-        if (isset(Auth::user()->id)){
             $currentUserId = Auth::user()->id;
             $button = Button::where('user_id', $currentUserId)
                 ->orderBy('button_id')
@@ -98,9 +88,6 @@ class ButtonService
                 return view('dashboard');
             }
             return view('home',compact('button'));
-        }
-        return redirect('/login');
-
     }
 
     /**
@@ -109,45 +96,40 @@ class ButtonService
      */
     public function update(ButtonRequest $request)
     {
-        if(isset(Auth::user()->id)){
-            $validated = $request->validated();
-            $buttonn = request('button_id');
-            $title = $this->request->get('title');
-            $link = $this->request->get('link');
-            $color = $this->request->get('color');
-            $currentUserId = Auth::user()->id;
-            $updateInfo = Button::where('user_id', $currentUserId)
-                ->where('button_id', $buttonn)
-                ->get();
-            foreach ($updateInfo as $up) {
-                $up->link = $link;
-                $up->color = $color;
-                $up->title = $title;
-                $up->save();
+        $validated = $request->validated();
+        $buttonn = request('button_id');
+        $title = $this->request->get('title');
+        $link = $this->request->get('link');
+        $color = $this->request->get('color');
+        $currentUserId = Auth::user()->id;
+        $updateInfo = Button::where('user_id', $currentUserId)
+            ->where('button_id', $buttonn)
+            ->get();
+        foreach ($updateInfo as $up) {
+            $up->link = $link;
+            $up->color = $color;
+            $up->title = $title;
+            $up->save();
 
-            }
-            return redirect('/home');
         }
-        return redirect('/login');
-
+        return redirect('/home');
     }
 
     /**
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     function delete(){
-        if (isset(Auth::user()->id)){
-            $currentUserId = Auth::user()->id;
-            $buttonn = new Hashids();
+        $currentUserId = Auth::user()->id;
+        $buttonn = new Hashids();
 
-            $id = $buttonn->decode(request('button_id'));
-            $buttonn = request('button_id');
-            $deletedInfo = Button::where('user_id',$currentUserId)
-                ->where('button_id',$id)
-                ->delete();
-            return redirect('/home');
-        }
-        return redirect('/login');
+        $id = $buttonn->decode(request('button_id'));
+        $buttonn = request('button_id');
+        $deletedInfo = Button::where('user_id',$currentUserId)
+            ->where('button_id',$id)
+            ->delete();
+        return redirect('/home');
+
+
     }
 
 }

@@ -18,9 +18,9 @@ Auth::routes();
 
 Auth::routes();
 
-Route::get('/home','ButtonsController@homeConfigButtons')->name('home');
-Route::get('/delete','ButtonsController@delete');
-Route::get('/config', 'ButtonsController@config');
-Route::post('/config','ButtonsController@InsertDB');
-Route::get('/edit','ButtonsController@edit');
-Route::post('/edit','ButtonsController@update');
+Route::get('/home','ButtonsController@homeConfigButtons')->name('home')->middleware(\App\Http\Middleware\Authenticate::class);
+Route::get('/delete','ButtonsController@delete')->middleware(\App\Http\Middleware\Authenticate::class);
+Route::get('/config', 'ButtonsController@config')->middleware(\App\Http\Middleware\Authenticate::class);
+Route::post('/config','ButtonsController@InsertDB')->middleware(\App\Http\Middleware\Authenticate::class);
+Route::get('/edit','ButtonsController@edit')->middleware(\App\Http\Middleware\Authenticate::class);
+Route::post('/edit','ButtonsController@update')->middleware(\App\Http\Middleware\Authenticate::class);
