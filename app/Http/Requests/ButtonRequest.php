@@ -28,4 +28,14 @@ class ButtonRequest extends FormRequest
             'link' => 'required|url|max:255'
         ];
     }
+    public function messages()
+    {
+        return [
+        'title.required'     => 'Title is is required!',
+        'title.max'          =>  'Title can not be more than 255 characters!',
+        'link.required'    => 'Link is required!',
+        'link.url'       => 'Link field needs to be a valid http:// or https:// address!',
+        'link.max'      => 'Link can not be more than 255 characters!',
+        ];
+    }
 }
