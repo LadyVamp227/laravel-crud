@@ -62,10 +62,8 @@ class ButtonService
         $buttonn = new Hashids('laravel-crud', 20, 'abcdefghijklmnopqrstuvwzwz');
         $id = $buttonn->decode(request('button_id'));
         $dbResult = DB::table('button')->where('user_id', '=', $currentUserId)->get();
-        foreach ($dbResult as $conf) {
-            if (empty($conf)) {
-                return view('btnconfig', ['link' => '/config', 'button_id' => $id]);
-            }
+        if (empty($dbResult)) {
+            return view('btnconfig', ['link' => '/config', 'button_id' => $id]);
         }
         return view('btnconfig', ['button_id' => $id]);
     }
